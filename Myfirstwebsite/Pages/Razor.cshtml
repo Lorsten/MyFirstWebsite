@@ -1,0 +1,37 @@
+﻿@page
+@model Myfirstwebsite.Pages.RazorModel
+
+
+@{ var culture = new System.Globalization.CultureInfo("sv-SE");
+    DateTime Todaysdate = DateTime.Now;
+    var day = culture.DateTimeFormat.GetDayName(Todaysdate.DayOfWeek);
+    List<string> courses = new List<string>();
+    courses.Add("DT057, Webbutveckling I");
+    courses.Add("DT057, Webbutveckling II");
+    courses.Add("DT003G,Datateknik GR, Databaser");
+    courses.Add("DT084G,Datateknik GR, Introduktion till programmering i JavaScript");
+    courses.Add("DT163G,Digital bildbehandling för webb");
+    courses.Add("GD008G,Grafisk design GR, Typografi och form för webb");
+    }
+
+
+
+<section>
+    <h2>Razor</h2>
+    <h3>Information</h3>
+    <h3>Datum/Klockslag: @Todaysdate</h3>
+
+    @if (day == "måndag")
+    {<p>Idag är det måndag</p>}
+    else
+    {<p>Idag är det inte måndag</p>}
+
+    <h3>Kurser jag läst</h3>
+    <ul>
+        @for (int i = 0; i < courses.Count; i++)
+        {
+            <li>@courses[i]</li>
+}
+
+    </ul>
+</section>

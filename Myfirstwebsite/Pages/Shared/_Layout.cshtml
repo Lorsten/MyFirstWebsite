@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Myfirstwebsite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <h1><a asp-area="" asp-page="/index">Asp.Net Core</a> </h1>
+            @{string TodaysDate = DateTime.UtcNow.ToString("yyyy-MM-dd"); }
+            <h2>Dagens datum @TodaysDate</h2>
+  
+        </div>
+    </header>
+    <!--start of wrapper-->
+    <div id="wrapper">
+        <button id="mobilemenu" aria-label="öppna mobil meny" aria-expanded="false">
+            <span class="icon"></span>
+            Meny
+        </button>
+        <!-- Using a bootstrap row-->
+        <nav id="mainmenu">
+            <ul>
+                <li>
+                    <a asp-area="" asp-page="/Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Razor">Razor</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/About">Om sidan</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main role="main">
+            @RenderBody()
+        </main>
+
+
+
+        <footer>
+
+            <h3>Av Olof Andersson - Kontakta mig via e-post: <a href="mailto:olan1700.mitt.se">olan1700.mitt.se</a> </h3>
+
+        </footer>
+    </div>
+        <!-- End of wrapper-->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
